@@ -1,0 +1,214 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="KadoExpress — cartes cadeaux et abonnements numériques au Gabon.">
+<title>KadoExpress | Vos services numériques en un clic</title>
+<style>
+:root{--bg:#050910;--panel:#101b2b;--blue:#078cff;--cyan:#20d9ee;--yellow:#ffe500;--muted:#aab8ca;--green:#20d977}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0,#102b50 0,transparent 38%),var(--bg);color:#f7f9ff;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92%);margin:auto}
+header{position:sticky;top:0;background:#050910ef;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff18;z-index:5}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-size:1.3rem;font-weight:950;letter-spacing:-.7px}
+.brand b{color:var(--cyan)}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 17px;border:0;border-radius:12px;font-weight:850;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:linear-gradient(100deg,var(--blue),#365cff);color:white}
+.outline{background:#ffffff08;border:1px solid #ffffff24;color:white}
+.wa{background:var(--green);color:#052414}
+.hero{padding:72px 0 55px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;min-height:475px}
+.pill{display:inline-block;border:1px solid #20d9ee66;color:#8eeeff;padding:7px 12px;border-radius:99px;font-size:.8rem;font-weight:800}
+h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1;letter-spacing:-3px;margin:20px 0}
+.gradient{background:linear-gradient(90deg,#fff,var(--cyan),#598cff);color:transparent;background-clip:text}
+.hero p,.muted{color:var(--muted)}
+.hero p{font-size:1.08rem;max-width:540px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.trust{display:flex;gap:17px;flex-wrap:wrap;margin-top:24px;font-size:.85rem;color:#cad7e6}
+.art{min-height:310px;display:grid;place-items:center;position:relative}
+.gift{width:min(300px,85%);aspect-ratio:1;border-radius:30px;display:grid;place-items:center;background:linear-gradient(145deg,#14375a,#091322);border:1px solid #20d9ee77;box-shadow:0 0 70px #078cff30;transform:rotate(-4deg);font-size:8rem}
+.float{position:absolute;padding:11px 14px;background:#111f31;border:1px solid #ffffff20;border-radius:12px;font-weight:800}
+.f1{top:8%;left:0;color:var(--yellow)}
+.f2{bottom:8%;right:0;color:var(--cyan)}
+section{padding:48px 0}
+.heading h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:0 0 6px;letter-spacing:-1px}
+.heading p{margin:0 0 23px;color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.search{flex:1;min-width:190px;background:var(--panel);color:white;border:1px solid #ffffff22;border-radius:12px;padding:12px 14px;font:inherit}
+.filter{border:1px solid #ffffff22;background:#ffffff08;color:#ccd6e5;border-radius:99px;padding:9px 13px;font-weight:750;cursor:pointer}
+.filter.active{border-color:#20d9ee;color:white;background:#20d9ee18}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.product{background:linear-gradient(145deg,#122034,#0b121e);border:1px solid #ffffff19;border-radius:19px;padding:21px;display:flex;flex-direction:column;min-height:225px;transition:.2s}
+.product:hover{border-color:#20d9ee88;transform:translateY(-3px)}
+.product[hidden]{display:none}
+.top{display:flex;align-items:center;justify-content:space-between}
+.icon{font-size:1.7rem;width:49px;height:49px;border-radius:14px;display:grid;place-items:center;background:#ffffff0d}
+.tag{font-size:.72rem;color:#b7c8da;background:#ffffff0b;padding:5px 8px;border-radius:99px}
+.product h3{margin:15px 0 3px}
+.product p{margin:0 0 18px;color:var(--muted);font-size:.9rem}
+.bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:950;font-size:1.22rem}
+.price small{display:block;font-size:.72rem;color:var(--muted);font-weight:600}
+.order{padding:9px 11px;font-size:.84rem}
+.notice{margin-top:18px;padding:13px 15px;border:1px solid #ffe50040;background:#ffe5000a;border-radius:12px;color:#d5deeb;font-size:.84rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.step,.contact{background:var(--panel);border:1px solid #ffffff19;border-radius:18px;padding:22px}
+.num{width:36px;height:36px;display:grid;place-items:center;background:#078cff20;color:var(--cyan);border-radius:10px;font-weight:900}
+.step h3{margin:13px 0 5px}
+.step p{margin:0;color:var(--muted);font-size:.93rem}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:22px;background:linear-gradient(110deg,#102d4c,#0c1422);padding:30px}
+.contact h2{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.4rem)}
+.contact p{margin:0;color:var(--muted)}
+.contactactions{display:flex;gap:9px;flex-wrap:wrap}
+footer{border-top:1px solid #ffffff19;padding:24px 0 32px;color:var(--muted);font-size:.85rem}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot strong{color:white}
+@media(max-width:780px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:48px;gap:8px}.art{min-height:280px}.products{grid-template-columns:repeat(2,1fr)}.contact{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.nav{height:64px}.brand{font-size:1.1rem}.nav>.btn{padding:10px 12px;font-size:.82rem}.hero{padding-top:38px}h1{letter-spacing:-2px}.products,.steps{grid-template-columns:1fr}.product{min-height:210px}.contact{padding:23px}section{padding:38px 0}.gift{font-size:6rem;width:240px}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap nav">
+<a class="brand" href="#accueil">🎁 Kado<b>Express</b></a>
+<nav class="navlinks">
+<a href="#offres">Nos offres</a>
+<a href="#commander">Comment commander</a>
+<a href="#paiement">Paiement</a>
+<a href="#contact">Contact</a>
+</nav>
+<a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/24177804971?text=Bonjour%20KadoExpress">WhatsApp ↗</a>
+</div>
+</header>
+<main>
+<div class="wrap hero" id="accueil">
+<div>
+<span class="pill">● DISPONIBLE AU GABON 🇬🇦</span>
+<h1>Vos services<br>numériques <span class="gradient">en un clic.</span></h1>
+<p>Cartes cadeaux et abonnements numériques : choisis ton offre et contacte KadoExpress directement sur WhatsApp.</p>
+<div class="actions">
+<a class="btn primary" href="#offres">Découvrir les offres ↓</a>
+<a class="btn outline" href="https://wa.me/24177804971?text=Bonjour%20KadoExpress" target="_blank" rel="noopener">Nous contacter</a>
+</div>
+<div class="trust"><span>⚡ Réponse rapide</span><span>✓ Commande simple</span><span>🔒 Contact direct</span></div>
+</div>
+<div class="art">
+<div class="gift">🎁</div>
+<div class="float f1">Offres numériques ✨</div>
+<div class="float f2">Gabon 🇬🇦</div>
+</div>
+</div>
+<section class="wrap" id="offres">
+<div class="heading"><h2>Choisis ton offre</h2><p>Une commande simple, directement sur WhatsApp.</p></div>
+<div class="tools">
+<input id="search" class="search" type="search" placeholder="Rechercher un service…" aria-label="Rechercher un service">
+<button class="filter active" data-filter="all">Tout</button>
+<button class="filter" data-filter="streaming">Streaming</button>
+<button class="filter" data-filter="musique">Musique</button>
+<button class="filter" data-filter="gaming">Gaming</button>
+<button class="filter" data-filter="social">Réseaux sociaux</button>
+</div>
+<div class="products" id="products">
+<article class="product" data-category="social" data-name="snapchat snap plus">
+<div class="top"><span class="icon">👻</span><span class="tag">Réseaux sociaux</span></div>
+<h3>Snapchat+</h3><p>Découvre les fonctionnalités Snapchat+.</p>
+<div class="bottom"><div class="price">2 500 FCFA<small>par mois</small></div><button class="btn primary order" data-service="Snapchat+" data-price="2 500 FCFA/mois">Commander</button></div>
+</article>
+<article class="product" data-category="musique" data-name="apple music musique">
+<div class="top"><span class="icon">🍎</span><span class="tag">Musique</span></div>
+<h3>Apple Music</h3><p>Écoute tes titres préférés.</p>
+<div class="bottom"><div class="price">3 500 FCFA<small>par mois</small></div><button class="btn primary order" data-service="Apple Music" data-price="3 500 FCFA/mois">Commander</button></div>
+</article>
+<article class="product" data-category="musique" data-name="spotify premium musique">
+<div class="top"><span class="icon">🟢</span><span class="tag">Musique</span></div>
+<h3>Spotify Premium</h3><p>Musique et podcasts avec Premium.</p>
+<div class="bottom"><div class="price">3 500 FCFA<small>par mois</small></div><button class="btn primary order" data-service="Spotify Premium" data-price="3 500 FCFA/mois">Commander</button></div>
+</article>
+<article class="product" data-category="gaming" data-name="playstation psn carte gaming">
+<div class="top"><span class="icon">🎮</span><span class="tag">Gaming</span></div>
+<h3>Carte PlayStation</h3><p>Confirme la valeur et la région du compte avant paiement.</p>
+<div class="bottom"><div class="price">8 000 FCFA<small>par carte</small></div><button class="btn primary order" data-service="Carte PlayStation" data-price="8 000 FCFA">Commander</button></div>
+</article>
+<article class="product" data-category="streaming" data-name="netflix film série streaming">
+<div class="top"><span class="icon">🎬</span><span class="tag">Streaming</span></div>
+<h3>Netflix</h3><p>Demande les modalités de l’offre avant de commander.</p>
+<div class="bottom"><div class="price">3 000 FCFA<small>par mois — à confirmer</small></div><button class="btn primary order" data-service="Netflix" data-price="3 000 FCFA/mois">Commander</button></div>
+</article>
+</div>
+<div class="notice">ℹ️ Les prix affichés sont à confirmer avant paiement. La disponibilité, la durée, la région du compte et les conditions peuvent varier. KadoExpress est un vendeur indépendant, non affilié aux marques présentées.</div>
+</section>
+<section class="wrap" id="commander">
+<div class="heading"><h2>Comment commander ?</h2><p>Trois étapes pour commencer.</p></div>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>Choisis ton service</h3><p>Sélectionne une offre et clique sur « Commander ».</p></div>
+<div class="step"><div class="num">02</div><h3>Échange sur WhatsApp</h3><p>Nous confirmons disponibilité, conditions et prix final.</p></div>
+<div class="step"><div class="num">03</div><h3>Confirme ta commande</h3><p>Suis les instructions convenues et attends la confirmation.</p></div>
+</div>
+</section>
+<section class="wrap" id="paiement">
+<div class="heading"><h2>Paiement Airtel Money</h2><p>Effectue ton paiement uniquement après confirmation de ta commande par KadoExpress.</p></div>
+<div class="contact">
+<div>
+<h3 style="margin:0 0 8px">📱 Numéro de paiement</h3>
+<p style="font-size:1.45rem;font-weight:900;color:#fff;margin:0 0 8px">+241 77804971</p>
+<p>1. Confirme le service et le montant sur WhatsApp.<br>2. Envoie le montant convenu via Airtel Money.<br>3. Envoie la preuve de transaction pour vérification.</p>
+</div>
+<div class="contactactions">
+<button class="btn outline" id="copyairtel" type="button">Copier le numéro</button>
+<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/24177804971?text=Bonjour%20KadoExpress%2C%20je%20souhaite%20confirmer%20mon%20paiement%20Airtel%20Money.">Envoyer la preuve sur WhatsApp ↗</a>
+</div>
+</div>
+<div class="notice">Important : le site n’est pas connecté directement à Airtel Money. Le paiement est manuel. Vérifie le nom du bénéficiaire et le montant avant de confirmer la transaction.</div>
+</section>
+<section class="wrap" id="contact">
+<div class="contact">
+<div><h2>Prêt à commander ? 💬</h2><p>Contacte-nous pour vérifier une offre ou poser une question.</p></div>
+<div class="contactactions">
+<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/24177804971?text=Bonjour%20KadoExpress">WhatsApp : +241 77804971 ↗</a>
+<button class="btn outline" id="copy">Copier le numéro</button>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap foot"><span><strong>KadoExpress</strong> · Vos services numériques en un clic.</span><span>Gabon 🇬🇦 · +241 77804971</span><span>© <span id="year"></span> KadoExpress</span></div></footer>
+<script>
+const wa='https://wa.me/24177804971';
+let category='all';
+document.querySelectorAll('.order').forEach(b=>b.addEventListener('click',()=>{
+const msg=`Bonjour KadoExpress 👋 Je souhaite commander ${b.dataset.service}. Prix affiché : ${b.dataset.price}. Merci de confirmer la disponibilité et les conditions avant paiement.`;
+window.open(wa+'?text='+encodeURIComponent(msg),'_blank','noopener');
+}));
+function filter(){
+const q=document.getElementById('search').value.toLowerCase().trim();
+document.querySelectorAll('.product').forEach(p=>{
+p.hidden=!((category==='all'||p.dataset.category===category)&&(p.dataset.name+' '+p.innerText).toLowerCase().includes(q));
+});
+}
+document.getElementById('search').addEventListener('input',filter);
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{
+document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+b.classList.add('active');
+category=b.dataset.filter;
+filter();
+}));
+async function copyNumber(button){
+try{
+await navigator.clipboard.writeText('+241 77804971');
+button.textContent='Numéro copié ✓';
+}catch(e){
+button.textContent='+241 77804971';
+}
+}
+document.getElementById('copy').addEventListener('click',function(){copyNumber(this)});
+document.getElementById('copyairtel').addEventListener('click',function(){copyNumber(this)});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
